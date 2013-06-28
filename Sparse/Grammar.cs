@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sparse
 {
-    public class Class1
+    public class Grammar
     {
     }
 }
