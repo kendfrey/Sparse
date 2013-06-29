@@ -15,7 +15,7 @@ namespace Sparse
 			private set;
 		}
 
-		public TokenRule(string name, Regex pattern) : base(name)
+		public TokenRule(Regex pattern)
 		{
 			this.Pattern = pattern;
 		}

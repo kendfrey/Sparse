@@ -8,13 +8,13 @@ namespace Sparse
 {
 	class ComplexRule : Rule
 	{
-		public Rule[][] Alternations
+		public string[][] Alternations
 		{
 			get;
 			set;
 		}
 
-		public ComplexRule(string name, Rule[][] alternations) : base(name)
+		public ComplexRule(string[][] alternations)
 		{
 			this.Alternations = alternations;
 		}
