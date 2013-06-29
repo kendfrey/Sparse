@@ -21,7 +21,7 @@ namespace Sparse
 			{
 				if (!Rules.ContainsKey(value) && value != null)
 				{
-					throw new ArgumentException("The specified name does not exist.", "value");
+					throw new ArgumentException("The specified rule name does not exist.", "value");
 				}
 				startRule = value;
 			}
