@@ -11,7 +11,7 @@ namespace Sparse
     {
 		string startRule;
 		
-		string StartRule
+		public string StartRule
 		{
 			get
 			{
