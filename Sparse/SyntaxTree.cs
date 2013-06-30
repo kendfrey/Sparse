@@ -21,10 +21,32 @@ namespace Sparse
 			private set;
 		}
 
-		internal SyntaxTree(string ruleName, SyntaxTree[] syntaxTrees)
+		public string Content
+		{
+			get
+			{
+				return string.Concat(this.SyntaxTrees.Select(t => t.Content));
+			}
+		}
+
+		public int Index
+		{
+			get;
+			private set;
+		}
+
+		public int Length
+		{
+			get;
+			private set;
+		}
+
+		internal SyntaxTree(string ruleName, SyntaxTree[] syntaxTrees, int index, int length)
 		{
 			this.RuleName = ruleName;
 			this.SyntaxTrees = Array.AsReadOnly(syntaxTrees);
+			this.Index = index;
+			this.Length = length;
 		}
 	}
 }
