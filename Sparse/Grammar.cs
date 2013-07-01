@@ -10,6 +10,8 @@ namespace Sparse
     public class Grammar
     {
 		string startRule;
+
+		Dictionary<string, Rule> rules;
 		
 		public string StartRule
 		{
@@ -19,18 +21,12 @@ namespace Sparse
 			}
 			set
 			{
-				if (!Rules.ContainsKey(value) && value != null)
+				if (!rules.ContainsKey(value) && value != null)
 				{
 					throw new ArgumentException("The specified rule name does not exist.", "value");
 				}
 				startRule = value;
 			}
-		}
-
-		Dictionary<string, Rule> Rules
-		{
-			get;
-			set;
 		}
 
 		public void AddTokenRule(string name, Regex pattern)
@@ -39,11 +35,11 @@ namespace Sparse
 			{
 				throw new ArgumentNullException("name", "You cannot specify a null name.");
 			}
-			if (Rules.ContainsKey(name))
+			if (rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			Rules.Add(name, new TokenRule(name, pattern));
+			rules.Add(name, new TokenRule(name, pattern));
 		}
 
 		public void AddComplexRule(string name, string[][] alternations)
@@ -52,16 +48,16 @@ namespace Sparse
 			{
 				throw new ArgumentNullException("name", "You cannot specify a null name.");
 			}
-			if (Rules.ContainsKey(name))
+			if (rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			Rules.Add(name, new ComplexRule(name, alternations.Select(arr => arr.ToArray()).ToArray()));
+			rules.Add(name, new ComplexRule(name, alternations.Select(arr => arr.ToArray()).ToArray()));
 		}
 
 		public void RemoveRule(string name)
 		{
-			if (!Rules.ContainsKey(name))
+			if (!rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name does not exist.");
 			}
@@ -69,13 +65,13 @@ namespace Sparse
 			{
 				StartRule = null;
 			}
-			Rules.Remove(name);
+			rules.Remove(name);
 		}
 
 		public void ClearRules()
 		{
 			StartRule = null;
-			Rules.Clear();
+			rules.Clear();
 		}
     }
 }
