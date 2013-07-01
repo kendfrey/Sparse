@@ -14,7 +14,7 @@ namespace Sparse
 			set;
 		}
 
-		public ComplexRule(string[][] alternations)
+		public ComplexRule(string name, string[][] alternations) : base(name)
 		{
 			this.Alternations = alternations;
 		}

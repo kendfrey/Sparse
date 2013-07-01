@@ -43,7 +43,7 @@ namespace Sparse
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			Rules.Add(name, new TokenRule(pattern));
+			Rules.Add(name, new TokenRule(name, pattern));
 		}
 
 		public void AddComplexRule(string name, string[][] alternations)
@@ -56,7 +56,7 @@ namespace Sparse
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			Rules.Add(name, new ComplexRule(alternations.Select(arr => arr.ToArray()).ToArray()));
+			Rules.Add(name, new ComplexRule(name, alternations.Select(arr => arr.ToArray()).ToArray()));
 		}
 
 		public void RemoveRule(string name)

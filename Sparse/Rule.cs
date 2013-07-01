@@ -8,5 +8,15 @@ namespace Sparse
 {
 	abstract class Rule
 	{
+		public string Name
+		{
+			get;
+			private set;
+		}
+
+		protected Rule(string name)
+		{
+			this.Name = name;
+		}
 	}
 }

@@ -9,6 +9,8 @@ namespace Sparse
 {
 	public class SyntaxTree
 	{
+		string token;
+
 		public string RuleName
 		{
 			get;
@@ -25,7 +27,7 @@ namespace Sparse
 		{
 			get
 			{
-				return string.Concat(this.SyntaxTrees.Select(t => t.Content));
+				return this.token != null ? this.token : string.Concat(this.SyntaxTrees.Select(t => t.Content));
 			}
 		}
 
@@ -37,16 +39,26 @@ namespace Sparse
 
 		public int Length
 		{
-			get;
-			private set;
+			get
+			{
+				return this.SyntaxTrees.Sum(t => t.Length);
+			}
 		}
 
-		internal SyntaxTree(string ruleName, SyntaxTree[] syntaxTrees, int index, int length)
+		internal SyntaxTree(string ruleName, SyntaxTree[] syntaxTrees, int index)
 		{
+			this.token = null;
 			this.RuleName = ruleName;
 			this.SyntaxTrees = Array.AsReadOnly(syntaxTrees);
 			this.Index = index;
-			this.Length = length;
+		}
+
+		internal SyntaxTree(string ruleName, string token, int index)
+		{
+			this.token = token;
+			this.RuleName = ruleName;
+			this.SyntaxTrees = null;
+			this.Index = index;
 		}
 	}
 }
