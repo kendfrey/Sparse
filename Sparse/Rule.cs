@@ -18,5 +18,7 @@ namespace Sparse
 		{
 			this.Name = name;
 		}
+
+		public abstract SyntaxTree[] Parse(string input, int index);
 	}
 }

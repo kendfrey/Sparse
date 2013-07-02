@@ -19,5 +19,18 @@ namespace Sparse
 		{
 			this.Pattern = pattern;
 		}
+
+		public override SyntaxTree[] Parse(string input, int index)
+		{
+			Match match = this.Pattern.Match(input, index);
+			if (match.Success)
+			{
+				return new SyntaxTree[1] { new SyntaxTree(this.Name, match.Value, index) };
+			}
+			else
+			{
+				return new SyntaxTree[0];
+			}
+		}
 	}
 }

@@ -79,5 +79,22 @@ namespace Sparse
 			this.StartRule = null;
 			this.rules.Clear();
 		}
+
+		public SyntaxTree Parse(string input)
+		{
+			if (this.StartRule == null)
+			{
+				throw new InvalidOperationException("No start rule is selected.");
+			}
+			SyntaxTree[] results = this.rules[this.StartRule].Parse(input, 0);
+			if (results.Length > 0)
+			{
+				return results[0];
+			}
+			else
+			{
+				return null;
+			}
+		}
     }
 }

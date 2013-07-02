@@ -18,5 +18,10 @@ namespace Sparse
 		{
 			this.Alternations = alternations;
 		}
+
+		public override SyntaxTree[] Parse(string input, int index)
+		{
+			throw new NotImplementedException();
+		}
 	}
 }
