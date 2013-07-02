@@ -41,7 +41,7 @@ namespace Sparse
 		{
 			get
 			{
-				return this.SyntaxTrees.Sum(t => t.Length);
+				return this.token != null ? this.token.Length : this.SyntaxTrees.Sum(t => t.Length);
 			}
 		}
 
