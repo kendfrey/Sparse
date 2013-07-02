@@ -12,6 +12,12 @@ namespace Sparse
 		string startRule;
 
 		Dictionary<string, Rule> rules;
+
+		public Grammar()
+		{
+			this.startRule = null;
+			this.rules = new Dictionary<string, Rule>();
+		}
 		
 		public string StartRule
 		{
