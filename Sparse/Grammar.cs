@@ -17,15 +17,15 @@ namespace Sparse
 		{
 			get
 			{
-				return startRule;
+				return this.startRule;
 			}
 			set
 			{
-				if (!rules.ContainsKey(value) && value != null)
+				if (!this.rules.ContainsKey(value) && value != null)
 				{
 					throw new ArgumentException("The specified rule name does not exist.", "value");
 				}
-				startRule = value;
+				this.startRule = value;
 			}
 		}
 
@@ -35,11 +35,11 @@ namespace Sparse
 			{
 				throw new ArgumentNullException("name", "You cannot specify a null name.");
 			}
-			if (rules.ContainsKey(name))
+			if (this.rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			rules.Add(name, new TokenRule(name, pattern));
+			this.rules.Add(name, new TokenRule(name, pattern));
 		}
 
 		public void AddComplexRule(string name, string[][] alternations)
@@ -48,30 +48,30 @@ namespace Sparse
 			{
 				throw new ArgumentNullException("name", "You cannot specify a null name.");
 			}
-			if (rules.ContainsKey(name))
+			if (this.rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name already exists.", "name");
 			}
-			rules.Add(name, new ComplexRule(name, alternations.Select(arr => arr.ToArray()).ToArray()));
+			this.rules.Add(name, new ComplexRule(name, alternations.Select(arr => arr.ToArray()).ToArray()));
 		}
 
 		public void RemoveRule(string name)
 		{
-			if (!rules.ContainsKey(name))
+			if (!this.rules.ContainsKey(name))
 			{
 				throw new ArgumentException("The specified rule name does not exist.");
 			}
-			if (name == StartRule)
+			if (name == this.StartRule)
 			{
-				StartRule = null;
+				this.StartRule = null;
 			}
-			rules.Remove(name);
+			this.rules.Remove(name);
 		}
 
 		public void ClearRules()
 		{
-			StartRule = null;
-			rules.Clear();
+			this.StartRule = null;
+			this.rules.Clear();
 		}
     }
 }
