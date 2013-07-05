@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="ComplexRule.cs" />
     <Compile Include="Grammar.cs" />
+    <Compile Include="GrammarBuilder.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rule.cs" />
     <Compile Include="SyntaxTree.cs" />

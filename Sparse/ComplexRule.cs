@@ -8,15 +8,14 @@ namespace Sparse
 {
 	class ComplexRule : Rule
 	{
-		public string[][] Alternations
+		public Rule[][] Alternations
 		{
 			get;
 			set;
 		}
 
-		public ComplexRule(string name, string[][] alternations) : base(name)
+		public ComplexRule(string name) : base(name)
 		{
-			this.Alternations = alternations;
 		}
 
 		public override SyntaxTree[] Parse(string input, int index)

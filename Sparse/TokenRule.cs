@@ -12,12 +12,11 @@ namespace Sparse
 		public Regex Pattern
 		{
 			get;
-			private set;
+			set;
 		}
 
-		public TokenRule(string name, Regex pattern) : base(name)
+		public TokenRule(string name) : base(name)
 		{
-			this.Pattern = pattern;
 		}
 
 		public override SyntaxTree[] Parse(string input, int index)
