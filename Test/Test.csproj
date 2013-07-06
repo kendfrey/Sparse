@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="TokenRuleTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ComplexRuleTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sparse\Sparse.csproj">
