@@ -21,13 +21,13 @@ namespace Test
 			SyntaxTree[] result = rule.Parse("123abc456", 2);
 			Assert.IsNotNull(result);
 			Assert.AreEqual(1, result.Length);
-			Assert.AreEqual("2abc456", result[0].Content);
+			Assert.AreEqual("3abc456", result[0].Content);
 			Assert.AreEqual(2, result[0].Index);
 			Assert.AreEqual(7, result[0].Length);
 			Assert.AreEqual("TestRule", result[0].RuleName);
 			Assert.IsNotNull(result[0].SyntaxTrees);
 			Assert.AreEqual(3, result[0].SyntaxTrees.Count);
-			Assert.AreEqual("2", result[0].SyntaxTrees[0].Content);
+			Assert.AreEqual("3", result[0].SyntaxTrees[0].Content);
 			Assert.AreEqual(2, result[0].SyntaxTrees[0].Index);
 			Assert.AreEqual(1, result[0].SyntaxTrees[0].Length);
 			Assert.AreEqual("Number", result[0].SyntaxTrees[0].RuleName);
